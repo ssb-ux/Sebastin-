@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Stitch - High Performance AI Platform</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#46ec13",
+                        "primary-hover": "#25c20f",
+                        "background-dark": "#000000",
+                        "surface-dark": "#0a0a0a",
+                        "surface-glass": "rgba(255, 255, 255, 0.03)",
+                        "surface-glass-hover": "rgba(255, 255, 255, 0.08)",
+                        "border-glass": "rgba(255, 255, 255, 0.1)",
+                        "cyan-accent": "#00D1FF",
+                        "muted-text": "#8B949E",
+                        "border-dark": "#30363D",
+                        "card-dark": "#131a24",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "grotesk": ["Space Grotesk", "sans-serif"],
+                        "mono": ["Manrope", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem", 
+                        "lg": "1.5rem", 
+                        "xl": "2rem", 
+                        "2xl": "2.5rem"
+                    },
+                    boxShadow: {
+                        "neon": "0 0 10px rgba(70, 236, 19, 0.5)",
+                        "neon-blue": "0 0 15px rgba(0, 209, 255, 0.4)",
+                        "glow": "0 0 20px 2px rgba(0, 209, 255, 0.4)",
+                        "glow-gold": "0 0 30px rgba(255, 215, 0, 0.25)",
+                        "glow-silver": "0 0 25px rgba(192, 192, 192, 0.2)",
+                        "glow-bronze": "0 0 20px rgba(205, 127, 50, 0.2)",
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1f1f1f 1px, transparent 1px), linear-gradient(to bottom, #1f1f1f 1px, transparent 1px)",
+                    },
+                    animation: {
+                        'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
+                        'shimmer': 'shimmer 1.5s infinite',
+                        'pulse-neon': 'pulse-neon 2s infinite',
+                    },
+                    keyframes: {
+                        'fade-in-up': {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'shimmer': {
+                            '100%': { transform: 'translateX(100%)' },
+                        },
+                        'pulse-neon': {
+                            '0%': { boxShadow: '0 0 0 0 rgba(70, 236, 19, 0.4)', transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.02)' },
+                            '70%': { boxShadow: '0 0 0 10px rgba(70, 236, 19, 0)' },
+                            '100%': { boxShadow: '0 0 0 0 rgba(70, 236, 19, 0)', transform: 'scale(1)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #000000;
+            color: white;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-panel:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(70, 236, 19, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A0E14; }
+        ::-webkit-scrollbar-thumb { background: #30363D; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #46ec13; }
+        
+        input[type=range] { -webkit-appearance: none; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; }
+        input[type=range]:focus { outline: none; }
+
+        .gold-gradient { background: linear-gradient(135deg, #FFD700 0%, #FDB931 50%, #B8860B 100%); color: #3f2e00; }
+        .silver-gradient { background: linear-gradient(135deg, #E0E0E0 0%, #BDBDBD 50%, #757575 100%); color: #1a1a1a; }
+        .bronze-gradient { background: linear-gradient(135deg, #FFAF7B 0%, #D7895A 50%, #8B4513 100%); color: #2d1404; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>

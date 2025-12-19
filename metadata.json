@@ -1,0 +1,8 @@
+{
+  "name": "Stitch AI",
+  "description": "High-performance workout tracker with multimodal AI coaching powered by Gemini.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
